@@ -1,5 +1,5 @@
 import React ,{Component} from "react";
-import {  Text, View,TouchableOpacity,StyleSheet,Dimensions } from "react-native";
+import {  Text, View,TouchableOpacity,StyleSheet,Dimensions,Image,ImageBackground ,ActivityIndicator} from "react-native";
 import Global from "../../providers/Global";
 import TextField from "../../components/TextField";
 
@@ -37,9 +37,18 @@ getName=(p)=>{
           <View style={{marginTop:'10%'}}>
           <TouchableOpacity style={{backgroundColor:'black',borderRadius:50,alignItems:'center',paddingVertical:10,width:'90%',alignSelf:'center'}}
           onPress={()=>{this.getName('hello')}}
-          ><TextField value="Press here" /></TouchableOpacity>
+          ><TextField value="Press here test" /></TouchableOpacity>
 
           <TouchableOpacity style={{backgroundColor:'black',width:'10%',alignItems:'center',alignSelf:'center',marginTop:'5%',width:WIDTH*0.5}}><TextField value="x" /></TouchableOpacity>
+
+          <TouchableOpacity style={{
+alignSelf:'center', alignContent:'center',
+borderRadius: Math.round(Dimensions.get('window').width + Dimensions.get('window').height) / 2,
+borderColor: 'red',
+width: Dimensions.get('window').width * 0.07,
+height: Dimensions.get('window').width * 0.07,
+backgroundColor: '#000000', justifyContent:'center',alignItems:'center'
+}}><Text style={{color:'white'}}>x</Text></TouchableOpacity>
       </View>
 </View>
     );

@@ -25,6 +25,7 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 import Friend,{Hello,By} from './src/components/Hello';
 import Home from './src/pages/Home/Home';
+import Login from './src/pages/Login/Login';
 
 const multi=(m)=>{
   console.log('multi 2*m: ',2*m);
@@ -37,9 +38,10 @@ const App: () => React$Node = () => {
       <SafeAreaView>
         {/* <ScrollView> */}
           {/* <View> */}
-          <Home/>
+          {/* <Home/> */}
           {/* </View> */}
         {/* </ScrollView> */}
+        <Login/>
       </SafeAreaView>
     </>
   );
