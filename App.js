@@ -26,6 +26,7 @@ import {
 import Friend,{Hello,By} from './src/components/Hello';
 import Home from './src/pages/Home/Home';
 import Login from './src/pages/Login/Login';
+import Storage from './src/pages/Storage/Storage';
 
 const multi=(m)=>{
   console.log('multi 2*m: ',2*m);
@@ -41,7 +42,8 @@ const App: () => React$Node = () => {
           {/* <Home/> */}
           {/* </View> */}
         {/* </ScrollView> */}
-        <Login/>
+        {/* <Login/> */}
+        <Storage/>
       </SafeAreaView>
     </>
   );

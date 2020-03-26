@@ -1,6 +1,10 @@
 import React, {Component} from 'react';
-import {View, Text, Image, FlatList, TouchableOpacity, ActivityIndicator,Modal} from 'react-native';
-// let selectedItems=[];
+import {View, Text,FlatList,Image, TouchableOpacity, ActivityIndicator,Modal} from 'react-native';
+import Api from '../../providers/Api';
+import AsyncStorage from '@react-native-community/async-storage';
+
+
+
 const Catlog = props => {
   return (
     <View style={{flexDirection:'row',paddingVertical:20}}>
@@ -14,7 +18,7 @@ const Catlog = props => {
         <Image
         source={{uri: props.item.thumbnailUrl}}
         style={{width: 200, height: 200,borderRadius:30}}
-        defaultSource={require('../../assets/img/test.jpg')}
+        // defaultSource={require('../../assets/img/test.jpg')}
         initialNumToRender={2}
       />
         </TouchableOpacity>
@@ -52,20 +56,27 @@ export default class Login extends Component {
   }
   getMoviesFromApi = async () => {
     try {
-      let response = await fetch('https://jsonplaceholder.typicode.com/photos');
-      let responseJson = await response.json();
-      //   console.log('responseJson: ',responseJson);
+      let responseJson = await Api.get('photos');
       this.setState({data: responseJson}, () => {});
-      // let data =[...this.state.data];
-      console.log('this.state.data: ', this.state.data);
-
-      //   return responseJson;
+      // console.log('this.state.data: ', this.state.data);
     } catch (error) {
       console.error(error);
     }
   };
+
+  postme =async()=>{
+      let data=await Api.post('posts',{
+        title: 'foo',
+        body: 'bar',
+        userId: 1
+      });
+
+      console.log('posts data: ',data);
+      
+  }
   componentDidMount() {
     this.getMoviesFromApi();
+    this.postme();
     //    console.log('data: ',data);
   }
 
